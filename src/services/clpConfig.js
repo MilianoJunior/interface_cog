@@ -17,7 +17,6 @@ const aparecidaLeituras = {
       { "nome": "QCC_NivelJusante_Grade", "addr": 13521 }
     ],
     "INT": [
-      { "nome": "Reserva_13296", "addr": 13303 },
       { "nome": "F50_U_Neutro", "addr": 13391 },
       { "nome": "F50L_U_FaseAB", "addr": 13385 },
       { "nome": "F50L_U_FaseBC", "addr": 13387 },

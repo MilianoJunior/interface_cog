@@ -18,13 +18,25 @@ const Dashboard = () => {
 
   // Usando useMemo para evitar recálculos desnecessários
   const turbineData = useMemo(() => {
-    return Object.entries(data.REAL || {})
+    // Obter dados REAL que começam com Turbina_
+    const realTurbineData = Object.entries(data.REAL || {})
       .filter(([key]) => key.startsWith('Turbina_'))
       .reduce((obj, [key, value]) => {
         obj[key] = value;
         return obj;
       }, {});
-  }, [data.REAL]);
+      
+    // Obter dados INT que começam com Turbina_
+    const intTurbineData = Object.entries(data.INT || {})
+      .filter(([key]) => key.startsWith('Turbina_'))
+      .reduce((obj, [key, value]) => {
+        obj[key] = value;
+        return obj;
+      }, {});
+      
+    // Combinar os dois conjuntos de dados
+    return { ...realTurbineData, ...intTurbineData };
+  }, [data.REAL, data.INT]);
 
   const temperatureData = useMemo(() => {
     return Object.entries(data.REAL || {})
